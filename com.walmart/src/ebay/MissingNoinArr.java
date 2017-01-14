@@ -1,4 +1,4 @@
-package com.arrays;
+package ebay;
 
 public class MissingNoinArr {
 	//method to calculate sum of n numbers

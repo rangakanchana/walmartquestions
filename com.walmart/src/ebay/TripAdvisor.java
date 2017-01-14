@@ -1,6 +1,5 @@
 package ebay;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,13 +28,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	
 	System.out.println(size);
 	
-	for(int i=0;i<size;i++){
+	for(WebElement element:dates){
 		
-		String values = dates.get(i).getText();
+		String ele= element.getText();
 		
-		System.out.println(values);
-		
-	}
+		System.out.println(ele);
+  }
+	
 	
 	
 	

@@ -1,4 +1,4 @@
-package Arrays;
+package ebay;
 public class SmallestNo {
 	/*public static void main(String[] args) {
 		int []arr = {23,15,2,16,89,76};

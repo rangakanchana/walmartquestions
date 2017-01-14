@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.Strings;
+package ebay;
 
 /**
  * @author sridhar//we need to reverse the string such that walmart = lawmtra;
