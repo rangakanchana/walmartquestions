@@ -31,6 +31,7 @@ public class WalmartAnotherWay {
 			System.out.println("Maximum List Price is: $" + al.get(0));
 
 		}
+		driver.close();
 
 		//System.out.println("Maximum List Price is: $" + al.get(0));
 	}

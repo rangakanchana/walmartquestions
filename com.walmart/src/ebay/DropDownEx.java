@@ -38,11 +38,18 @@ public class DropDownEx {
     
     System.out.println(count);
     
-    for(int i=0;i<count;i++){
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+    
+    for(WebElement optionValue:itemscount){
     	
-    String optionValue=	itemscount.get(i).getText();
+    	String values=optionValue.getText();
     	
-    System.out.println(optionValue);
+   // String optionValue=	itemscount.get(i).getText();
+    	
+    System.out.println(values);
+    
+    driver.close();
     }
     
 }

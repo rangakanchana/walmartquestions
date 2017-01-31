@@ -64,6 +64,8 @@ public class YelpEx {
         
         System.out.println("the max reviews are:::"+ Collections.max(review));
         
+        driver.close();
+        
        }
 
 }

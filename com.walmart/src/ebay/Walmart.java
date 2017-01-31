@@ -3,6 +3,7 @@ package ebay;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +20,16 @@ public class Walmart {
 	
 	driver.get("https://www.walmart.com/browse/clothing/handbags/5438_1045799_1045800?sort=price_high");
 	
-	List<WebElement> values=driver.findElements(By.xpath("//span[@class='price price-display']"));
+	driver.manage().window().maximize();
 	
-	List<String> prices = new ArrayList<String>() ;
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
+	//List<WebElement> values=driver.findElements(By.xpath("//span[@class='price price-display']"));
+	
+	List<WebElement> values=driver.findElements(By.xpath("//div[@class='price-main-block']"));
+
+	
+	List<Double> prices = new ArrayList<Double>() ;
 		
 		for (int i=0;i<values.size();i++){
 			
@@ -29,11 +37,11 @@ public class Walmart {
 			
         String [] tmp = values.get(i).getText().split("\n");
         
-        System.out.println(tmp);
+        System.out.println(tmp.toString());
         
         //then adding together... //tmp[0]=$5499+tmp[1]=.,tmp[2]=95 cents
         
-		String addString = tmp[0]+tmp[1]+tmp[2];
+		String addString = tmp[0];
 		
 		System.out.println(addString);
 		
@@ -46,19 +54,25 @@ public class Walmart {
 		addString=addString.replace(",", "");
 		
 		System.out.println(addString);
+		
+		Double priceList=Double.parseDouble(addString);
 
-		prices.add(addString);	
+		prices.add(priceList);	
 		}
 		System.out.println( "All Prices " + prices);
 		
-		System.out.println("Max Price " + Collections.max(prices));
+        Double maxPrice=Collections.max(prices);
+        
+        System.out.println("max price bag is "+maxPrice);
+        
+        driver.close();
 		}
 
 			
 		
 	    }
 	
-	
+
 	
 
 
